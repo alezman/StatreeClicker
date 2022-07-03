@@ -226,6 +226,8 @@ addLayer("p", {
         if (player.p.total.gte(10) && getBuyableAmount('p2',13).eq(0)) player.p.population = player.p.population.add(new Decimal(x).mul(diff))
         if (player.p.total.gte(10) && getBuyableAmount('p2',13).gte(1)) player.p.population = player.p.population.add(new Decimal(y).mul(diff))
         player.points = player.points.add(tmp.p.clickProd.a.mul(diff))
+        Math.max(player.timer = player.timer - diff, 0)
+        if (player.timer < 0) hardReset(true)
     }
 })
 

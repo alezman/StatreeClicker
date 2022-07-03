@@ -32,9 +32,6 @@ addLayer("tree-tab", {
         "Upgrades": {
             embedLayer() {return 'p2'},
         },
-        "Prestige": {
-            embedLayer() {return 'p3'},
-        },
     },
     previousTab: "",
     leftTab: true,

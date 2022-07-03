@@ -8,7 +8,7 @@ let modInfo = {
 	discordName: "",
 	discordLink: "",
 	initialStartPoints: new Decimal (0), // Used for hard resets and new players
-	offlineLimit: 1,  // In hours
+	offlineLimit: 0,  // In hours
 }
 
 // Set your version in num and name
@@ -48,10 +48,14 @@ function getPointGen() {
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() { return {
+	timer: 600
 }}
 
 // Display extra things at the top of the page
 var displayThings = [
+	function() {
+		return "You have " + formatTime(player.timer) + " to finish the game, otherwise it will hard reset."
+	}
 ]
 
 // Determines when the game "ends"
@@ -64,8 +68,8 @@ function isEndgame() {
 // Less important things beyond this point!
 
 // Style for the background, can be a function
-var backgroundStyle = {
-
+var backgroundStyle = function() {
+	if (player.p.timer1 > 0) return {"background-color": "blue"}
 }
 
 // You can change this if you have things that can be messed up by long tick lengths
